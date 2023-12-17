@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title> Calculator </title>
+
+     <style>
+          
+          body {
+               background: linear-gradient(to right, #ebe1e1, #f7ead3, #ebe1e1);
+          }
+
+          input {
+               height: 5rem;
+               width: 5rem;
+               margin: 0%;
+               padding: 0%;
+               font-size: x-large;
+               border: 1px solid black;
+               color: black;
+               background-color: rgb(225, 226, 226);
+          }
+
+          .container {
+               border: 1px solid black;
+               border-radius: 5%;
+               padding: 1%;
+               width: fit-content;
+               background-color: rgb(153, 153, 153);
+          }
+
+          .btn {
+               border-radius: 9%;
+          }
+
+          .btn:hover{
+               background-color: rgb(255, 232, 232);
+               font-size: xx-large;
+          }
+
+
+          @media only screen and (max-width:800px) {
+               /* For tablets: */
+               .texview,
+               .form {
+                    width: 70%;
+                    padding: 0;
+               }
+
+          }
+
+          @media only screen and (max-width:500px) {
+               /* For mobile phones: */
+               table,
+               .container
+               .btn
+               {
+                    width: 100%;
+                    padding: 0%;
+                    margin: auto;
+               }
+          }
+     </style>
+
+
+     <script>
+
+          // Use insert() function to insert the number in textview.
+          function insert(num) {
+               document.form1.textview.value = document.form1.textview.value + num;
+          }
+
+          // Use equal() function to return the result based on passed values.
+          function equal() {
+               var exp = document.form1.textview.value;
+               if (exp) {
+                    document.form1.textview.value = eval(exp)
+               }
+          }
+
+          /* Here, we create a backspace() function to remove the number at the end of the numeric series in textview. */
+          function backspace() {
+               var exp = document.form1.textview.value;
+               document.form1.textview.value = exp.substring(0, exp.length - 1); /* remove the element from total length ? 1 */
+          }
+
+     </script>
+
+
+</head>
+
+<body>
+     <center>
+
+          <h1 style="color: blue;"> Calculator </h1>
+
+          <div class="container">
+               <div class="item">
+               </div>
+               
+               <div class="item">
+                    <table>
+                         <form name="form1" class="form">
+                              <input class="textview" name="textview"
+                                   style="width: 97%; border: 1px solid black; border-radius: 2%; font-size: 25px;">
+                         </form>
+                         <tr>
+                              <td> <input class="btn" type="button" value="C" onclick="form1.textview.value = '  ' ">
+                              </td>
+                              <td> <input class="btn" type="button" value="%" onclick="insert('%')"> </td>
+                              <td> <input class="btn" type="button" value="/" onclick="insert('/')"> </td>
+                              <td> <input class="btn" type="button" value="x" onclick="insert('*')"> </td>
+                         </tr>
+                         <tr>
+                              <td> <input class="btn" type="button" value="7" onclick="insert(7)"> </td>
+                              <td> <input class="btn" type="button" value="8" onclick="insert(8)"> </td>
+                              <td> <input class="btn" type="button" value="9" onclick="insert(9)"> </td>
+                              <td> <input class="btn" type="button" value="-" onclick="insert('-')"> </td>
+                         </tr>
+                         <tr>
+                              <td> <input class="btn" type="button" value="4" onclick="insert(4)"> </td>
+                              <td> <input class="btn" type="button" value="5" onclick="insert(5)"> </td>
+                              <td> <input class="btn" type="button" value="6" onclick="insert(6)"> </td>
+                              <td> <input class="btn" type="button" value="+" onclick="insert('+')"> </td>
+
+                         </tr>
+                         <tr>
+                              <td> <input class="btn" type="button" value="1" onclick="insert(1)"> </td>
+                              <td> <input class="btn" type="button" value="2" onclick="insert(2)"> </td>
+                              <td> <input class="btn" type="button" value="3" onclick="insert(3)"> </td>
+                              <td rowspan="2"> <input class="btn" type="button" value="=" style="height: 165px;"
+                                        onclick="equal()"> </td>
+                         </tr>
+                         <tr>
+                              <td> <input class="btn" type="button" value="." onclick="insert('.')"> </td>
+                              <td> <input class="btn" type="button" value="0" onclick="insert(0)"> </td>
+                              <td> <input class="btn" type="button" value="&larr;" onclick="backspace()">
+                              </td>
+                         </tr>
+
+                    </table>
+
+               </div>
+          </div>
+
+
+
+
+</body>
+
+</html>
